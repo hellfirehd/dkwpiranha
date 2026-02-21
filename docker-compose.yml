@@ -1,15 +1,49 @@
 services:
-  dkw.io:
+
+  dkwio:
     image: ${DOCKER_REGISTRY-}dkwio
     build:
       context: .
       dockerfile: dkw.io/Dockerfile
-    ports:
-      - "5000:8080"
-      - "5001:8081"
+    container_name: dkwio
+    restart: unless-stopped
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_HTTP_PORTS=8080
-      - ASPNETCORE_HTTPS_PORTS=8081
+    ports:
+      - "8080:8080"
     volumes:
-      - ~/.aspnet/https:/https:ro
+      - ./data:/https:ro
+
+  dkwio-umami-db:
+    image: postgres:17-alpine
+    container_name: dkwio-umami-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: umami
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U umami"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - umami-db-data:/var/lib/postgresql/data
+
+  dkwio-umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    container_name: dkwio-umami
+    restart: unless-stopped
+    depends_on:
+      umami-db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://umami:umami@umami-db:5432/umami
+      DATABASE_TYPE: postgresql
+      APP_SECRET: replace-this-with-a-random-string
+    ports:
+      - "3000:3000"
+
+volumes:
+  umami-db-data:

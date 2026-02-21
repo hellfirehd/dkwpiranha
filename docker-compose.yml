@@ -1,0 +1,15 @@
+services:
+  dkw.io:
+    image: ${DOCKER_REGISTRY-}dkwio
+    build:
+      context: .
+      dockerfile: dkw.io/Dockerfile
+    ports:
+      - "5000:8080"
+      - "5001:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+    volumes:
+      - ~/.aspnet/https:/https:ro

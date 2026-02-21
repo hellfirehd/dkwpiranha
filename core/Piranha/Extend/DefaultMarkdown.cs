@@ -20,6 +20,18 @@ public class DefaultMarkdown : IMarkdown
     /// </summary>
     public MarkdownPipeline _pipeline { get; set; }
 
+    /// <summary>
+    /// Configures the markdown pipeline. This allows applications to extend the pipeline
+    /// with custom extensions without modifying Piranha core.
+    /// </summary>
+    /// <param name="configure">Action to configure the pipeline builder</param>
+    public void ConfigurePipeline(Action<MarkdownPipelineBuilder> configure)
+    {
+        var builder = new MarkdownPipelineBuilder();
+        configure(builder);
+        _pipeline = builder.Build();
+    }
+
     /// <inheritdoc />
     public string Transform(string md)
     {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28729.10
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11512.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{42A64587-89B5-48F2-84D4-85B97F7847F1}"
 EndProject
@@ -19,10 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Piranha.Tests", "test\Piran
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".global", ".global", "{88054E40-5547-4EA5-B75E-D446E8E5A021}"
 	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		docker-compose.yml = docker-compose.yml
 		LICENSE = LICENSE
 		README.md = README.md
-		Directory.Build.targets = Directory.Build.targets
-		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Piranha.Local.FileStorage", "core\Piranha.Local.FileStorage\Piranha.Local.FileStorage.csproj", "{4587BC7F-94D4-4DF5-B46E-4CC0E462FF03}"
@@ -59,11 +60,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Piranha.Data.EF.SQLite", "d
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Piranha.Data.EF.SQLServer", "data\Piranha.Data.EF.SQLServer\Piranha.Data.EF.SQLServer.csproj", "{538596A9-6085-4535-96ED-508A0C30DF32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piranha.Data.EF.MySql", "data\Piranha.Data.EF.MySql\Piranha.Data.EF.MySql.csproj", "{1D7557A7-EB80-4E33-928C-9E3F6A2735C6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piranha.Data.EF.PostgreSql", "data\Piranha.Data.EF.PostgreSql\Piranha.Data.EF.PostgreSql.csproj", "{F6DD71E5-F9F8-4150-8A0B-851EADAE532B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piranha.AspNetCore.Identity.MySQL", "identity\Piranha.AspNetCore.Identity.MySQL\Piranha.AspNetCore.Identity.MySQL.csproj", "{29051A1A-2FC0-490E-85B0-B19279E756EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piranha.AspNetCore.Identity.PostgreSQL", "identity\Piranha.AspNetCore.Identity.PostgreSQL\Piranha.AspNetCore.Identity.PostgreSQL.csproj", "{B91D76C2-5999-418D-81B6-D52EC32836A0}"
 EndProject
@@ -72,6 +69,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piranha.Manager.LocalAuth", "core\Piranha.Manager.LocalAuth\Piranha.Manager.LocalAuth.csproj", "{A88D6D8D-725E-494F-91CD-440D87BFF21B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piranha.AspNetCore.Hosting", "core\Piranha.AspNetCore.Hosting\Piranha.AspNetCore.Hosting.csproj", "{8AFA0D7F-BDD9-41E0-BC69-B2B762516F33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dkw.io", "dkw.io\dkw.io.csproj", "{ECF9C6EC-2927-A9F7-4B11-DB8FFB01D87B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,18 +158,10 @@ Global
 		{538596A9-6085-4535-96ED-508A0C30DF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{538596A9-6085-4535-96ED-508A0C30DF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{538596A9-6085-4535-96ED-508A0C30DF32}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D7557A7-EB80-4E33-928C-9E3F6A2735C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D7557A7-EB80-4E33-928C-9E3F6A2735C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D7557A7-EB80-4E33-928C-9E3F6A2735C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D7557A7-EB80-4E33-928C-9E3F6A2735C6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F6DD71E5-F9F8-4150-8A0B-851EADAE532B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F6DD71E5-F9F8-4150-8A0B-851EADAE532B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6DD71E5-F9F8-4150-8A0B-851EADAE532B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6DD71E5-F9F8-4150-8A0B-851EADAE532B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29051A1A-2FC0-490E-85B0-B19279E756EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29051A1A-2FC0-490E-85B0-B19279E756EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29051A1A-2FC0-490E-85B0-B19279E756EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29051A1A-2FC0-490E-85B0-B19279E756EF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B91D76C2-5999-418D-81B6-D52EC32836A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B91D76C2-5999-418D-81B6-D52EC32836A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B91D76C2-5999-418D-81B6-D52EC32836A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -183,6 +174,10 @@ Global
 		{8AFA0D7F-BDD9-41E0-BC69-B2B762516F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AFA0D7F-BDD9-41E0-BC69-B2B762516F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AFA0D7F-BDD9-41E0-BC69-B2B762516F33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECF9C6EC-2927-A9F7-4B11-DB8FFB01D87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF9C6EC-2927-A9F7-4B11-DB8FFB01D87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF9C6EC-2927-A9F7-4B11-DB8FFB01D87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF9C6EC-2927-A9F7-4B11-DB8FFB01D87B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -208,9 +203,7 @@ Global
 		{497CBEC0-6D71-43ED-9E8C-6A0DB605AA47} = {DE1913AC-4AA3-4F66-83F1-615710D8367B}
 		{A9C23685-EC2E-4C57-90EB-069054796F5C} = {DCC52317-BC88-4F0A-923F-C9D9F6D952ED}
 		{538596A9-6085-4535-96ED-508A0C30DF32} = {DCC52317-BC88-4F0A-923F-C9D9F6D952ED}
-		{1D7557A7-EB80-4E33-928C-9E3F6A2735C6} = {DCC52317-BC88-4F0A-923F-C9D9F6D952ED}
 		{F6DD71E5-F9F8-4150-8A0B-851EADAE532B} = {DCC52317-BC88-4F0A-923F-C9D9F6D952ED}
-		{29051A1A-2FC0-490E-85B0-B19279E756EF} = {9C09AC36-71CF-4E0E-B7CE-C38969A3E123}
 		{B91D76C2-5999-418D-81B6-D52EC32836A0} = {9C09AC36-71CF-4E0E-B7CE-C38969A3E123}
 		{A88D6D8D-725E-494F-91CD-440D87BFF21B} = {42A64587-89B5-48F2-84D4-85B97F7847F1}
 		{8AFA0D7F-BDD9-41E0-BC69-B2B762516F33} = {42A64587-89B5-48F2-84D4-85B97F7847F1}

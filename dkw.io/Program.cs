@@ -68,8 +68,8 @@ app.UsePiranha(options =>
         {
             builder
                 .UseAdvancedExtensions()
+                .UsePipeTables()
                 .UsePrism();
-            //.UseCodeHighlighting();
         });
     }
 

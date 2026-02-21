@@ -38,6 +38,43 @@ If deployment user/group/UID changed, re-run:
 scripts/setup-dkwio-prereqs.sh
 ```
 
+## Minimal-Downtime Update
+
+For a single-instance app, true zero downtime is not possible, but this sequence minimizes downtime by building first and recreating only the app container:
+
+```bash
+scripts/deploy-dkwio.sh
+```
+
+To deploy without pulling (for already-updated working trees):
+
+```bash
+scripts/deploy-dkwio.sh --no-pull
+```
+
+Notes:
+
+- `--no-deps` avoids restarting `dkwio-umami` and `dkwio-umami-db`
+- Downtime is typically limited to the short container recreate/start window
+- SQLite data remains intact because `dkw.io/App_Data` is bind-mounted on host
+
+## Quick Rollback
+
+If an update fails, roll back code and redeploy the previous version:
+
+```bash
+git log --oneline -n 5
+git checkout <previous-known-good-commit>
+docker compose up -d --build dkwio
+```
+
+After validation, return to your normal branch tip when ready:
+
+```bash
+git checkout <your-branch>
+git pull
+```
+
 ## Verification
 
 ```bash

@@ -10,9 +10,11 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__piranha=Filename=/app/App_Data/piranha.db
     ports:
       - "8080:8080"
     volumes:
+      - ./dkw.io/App_Data:/app/App_Data
       - ~/.aspnet/https:/https:ro
 
   dkwio-umami-db:

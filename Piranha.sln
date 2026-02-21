@@ -19,11 +19,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Piranha.Tests", "test\Piran
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".global", ".global", "{88054E40-5547-4EA5-B75E-D446E8E5A021}"
 	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		CONTRIBUTING.md = CONTRIBUTING.md
+		crowdin.yml = crowdin.yml
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
 		docker-compose.yml = docker-compose.yml
+		IMPLEMENTATION_SUMMARY.md = IMPLEMENTATION_SUMMARY.md
 		LICENSE = LICENSE
+		pack.sh = pack.sh
 		README.md = README.md
+		SECURITY.md = SECURITY.md
+		sign.json = sign.json
+		test.sh = test.sh
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Piranha.Local.FileStorage", "core\Piranha.Local.FileStorage\Piranha.Local.FileStorage.csproj", "{4587BC7F-94D4-4DF5-B46E-4CC0E462FF03}"

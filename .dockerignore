@@ -60,6 +60,5 @@ Dockerfile*
 docker-compose*
 .dockerignore
 
-# Data directories
-data/
+# Runtime-uploaded files
 wwwroot/uploads/

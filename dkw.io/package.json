@@ -5,10 +5,11 @@
   "main": "index.js",
   "author": "Piranha CMS",
   "license": "MIT",
+  "scripts": {
+    "build:css": "sass assets/scss/style.scss wwwroot/assets/css/style.css --no-source-map && sass assets/scss/style.scss wwwroot/assets/css/style.min.css --style=compressed --no-source-map",
+    "watch:css": "sass --watch assets/scss/style.scss:wwwroot/assets/css/style.css --no-source-map"
+  },
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-cssmin": "^0.2.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.0.2"
+    "sass": "^1.93.2"
   }
 }

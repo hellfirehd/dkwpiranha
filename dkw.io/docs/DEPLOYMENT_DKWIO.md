@@ -29,6 +29,8 @@ What this does:
 From repo root after pulling latest changes:
 
 ```bash
+npm install
+npm run build:css
 docker compose up -d --build
 ```
 
@@ -57,6 +59,23 @@ Notes:
 - `--no-deps` avoids restarting `dkwio-umami` and `dkwio-umami-db`
 - Downtime is typically limited to the short container recreate/start window
 - SQLite data remains intact because `dkw.io/App_Data` is bind-mounted on host
+
+## Frontend CSS Build
+
+This project now uses Dart Sass via npm scripts (no gulp task runner).
+
+From repo root:
+
+```bash
+npm install
+npm run build:css
+```
+
+For local development while editing SCSS:
+
+```bash
+npm run watch:css
+```
 
 ## Quick Rollback
 
